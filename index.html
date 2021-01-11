@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!-- Bootstrap CSS -->
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+            crossorigin="anonymous"
+    />
+
+    <title>Formularz</title>
+</head>
+
+<body>
+<div class="container">
+    <h1>Dość złożony formularz</h1>
+
+    <form class="needs-validation" novalidate>
+        <div class="row pt-3">
+            <div class="col-md-6">
+                <label for="input-name" class="form-label"> Imię </label>
+                <input type="text" class="form-control" id="input-name" placeholder="Jan" required/>
+                <div class="invalid-feedback">Podaj imię.</div>
+            </div>
+
+            <div class="col-md-6">
+                <label for="input-surname" class="form-label"> Nazwisko </label>
+                <input type="text" class="form-control" id="input-surname" placeholder="Kowalski" required/>
+                <div class="invalid-feedback">Podaj nazwisko.</div>
+            </div>
+        </div>
+
+        <div class="col-md-12 pt-3">
+            <label for="input-email" class="form-label "> Email </label>
+            <input type="email" class="form-control" id="input-email" required/>
+            <div class="invalid-feedback">Podaj poprawny adres e-mail.</div>
+        </div>
+
+        <div class="col-md-12 pt-3">
+            <label for="input-password" class="form-label"> Hasło </label>
+            <input type="password" minlength="8" id="input-password" class="form-control" required/>
+            <div id="terms-help" class="form-text">Hasło musi się składać z co najmniej 8 znaków.</div>
+            <div class="invalid-feedback">Podaj hasło składające się z co najmniej 8 znaków.</div>
+        </div>
+
+        <div class="col-md-12 pt-3">
+            <label for="input-address" class="form-label"> Ulica </label>
+            <input type="text" class="form-control" id="input-address" placeholder="Grunwaldzka"/>
+        </div>
+
+        <div class="row pt-3">
+            <div class="col-md-6">
+                <label for="input-postal-code" class="form-label"> Kod pocztowy </label>
+                <div class="input-group mb-3">
+                    <input class="form-control" id="input-postal-code" minlength="2" maxlength="2" placeholder="00"
+                           required/>
+                    <span class="input-group-text">-</span>
+                    <input class="form-control" id="input-postal-code-2" minlength="3" maxlength="3" placeholder="000"
+                           required/>
+                    <div class="invalid-feedback">Podaj kod pocztowy.</div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <label for="input-city" class="form-label"> Miejscowość </label>
+                <input type="text" class="form-control" id="input-city" placeholder="Gdańsk" required/>
+                <div class="invalid-feedback">Podaj miejscowość.</div>
+            </div>
+        </div>
+
+        <div>
+            <div class="mb-3 pt-3 form-check">
+                <input class="form-check-input" type="checkbox" value="" id="check-terms" aria-describedby="terms-help"
+                       required/>
+                <label class="form-check-label" for="check-terms"> Akceptuję regulamin </label>
+                <div class="invalid-feedback">Zaakceptuj regulamin, żeby się zarejestrować.</div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary another-element">Zarejestruj się</button>
+        </div>
+
+    </form>
+</div>
+
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"
+></script>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        "use strict";
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll(".needs-validation");
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms).forEach(function (form) {
+            form.addEventListener(
+                "submit",
+                function (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    if (form.checkValidity()) {
+                        alert("Gratulacje – ten formularz wygląda dobrze :)");
+                    }
+
+                    form.classList.add("was-validated");
+                },
+                false
+            );
+        });
+    })();
+</script>
+</body>
+</html>
